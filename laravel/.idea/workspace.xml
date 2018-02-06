@@ -24,17 +24,9 @@
       <file leaf-file-name="WxController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WxController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="33" />
-              <folding>
-                <marker date="1517928221000" expanded="true" signature="1146:1248" ph="..." />
-                <marker date="1517928221000" expanded="true" signature="1146:1249" ph="..." />
-                <marker date="1517928221000" expanded="true" signature="1146:1329" ph="..." />
-                <marker date="1517928221000" expanded="true" signature="1146:1336" ph="..." />
-                <marker date="1517928221000" expanded="true" signature="1146:1477" ph="..." />
-                <marker date="1517928221000" expanded="true" signature="1146:1478" ph="..." />
-                <marker date="1517928221000" expanded="true" signature="1146:1542" ph="..." />
-              </folding>
+            <state relative-caret-position="375">
+              <caret line="30" column="9" lean-forward="true" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -149,12 +141,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1517884099353</updated>
-      <workItem from="1517884102899" duration="11904000" />
+      <workItem from="1517884102899" duration="12020000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11904000" />
+    <option name="totallyTimeSpent" value="12020000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -259,17 +251,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WxController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="33" />
-          <folding>
-            <marker date="1517928221000" expanded="true" signature="1146:1248" ph="..." />
-            <marker date="1517928221000" expanded="true" signature="1146:1249" ph="..." />
-            <marker date="1517928221000" expanded="true" signature="1146:1329" ph="..." />
-            <marker date="1517928221000" expanded="true" signature="1146:1336" ph="..." />
-            <marker date="1517928221000" expanded="true" signature="1146:1477" ph="..." />
-            <marker date="1517928221000" expanded="true" signature="1146:1478" ph="..." />
-            <marker date="1517928221000" expanded="true" signature="1146:1542" ph="..." />
-          </folding>
+        <state relative-caret-position="375">
+          <caret line="30" column="9" lean-forward="true" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>

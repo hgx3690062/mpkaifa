@@ -13,8 +13,7 @@ class WxController extends Controller
     public function index()
     {
 
-
-        $signatrue   = $_GET['signatrue'];
+        $signatrue   = $_GET['signature'];
         $token         = 'zhangyu';
         $timestamp = $_GET['timestamp'];
         $nonce         = $_GET['nonce'];
@@ -31,29 +30,5 @@ class WxController extends Controller
             exit;
         }
 
-//
-//                        $xml =  $GLOBALS['HTTP_RAW_POST_DATA'];
-//                        $postObj = simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
-//
-//
-//
-//                    $toUsername = $postObj->FromUserName; //用户微信号
-//                    $fromUsername = $postObj->ToUserName; //开发者微信号
-//                    $msgType = $postObj->MsgType; //回复类型
-//                    $content = $postObj->Content;   //获取用户发的信息
-//                    $time = time(); //时间戳
-//
-//                    $tpl = "<xml>  <ToUserName><![CDATA[%s]]></ToUserName>
-//                                   <FromUserName><![CDATA[$fromUsername]]></FromUserName>
-//                                   <CreateTime>time()</CreateTime>
-//                                   <MsgType><![CDATA[text]]></MsgType>
-//                                   <Content><![CDATA[$content]]></Content>
-//                                   </xml>";
-//                    $resultSte = sprintf($tpl,$toUsername,$fromUsername,$time,$MsgType,$content);
-//                    echo $tpl;
-
-
-
-//        }
     }
 }
