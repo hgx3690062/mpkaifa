@@ -13,20 +13,27 @@ class WxController extends Controller
 {
     public function index()
     {
-        $signatrue     = $_GET['signature'];
-        $token         = 'zhangyu';
-        $timestamp     = $_GET['timestamp'];
-        $nonce         = $_GET['nonce'];
+        $poststr = $GLOBALS['HTTP_RAW_POST_DATA'];
+        $postObj   = simplexml_load_string($poststr,'SimpleXMLElement',LIBXML_NOCDATA);
+        $toUsername = $postObj->FromUserName; //用户微信号
+        $fromUsername = $postObj->ToUserName; //开发者微信号
+        $msgType = $postObj->MsgType; //回复类型
+        $content = $postObj->Content;   //获取用户发的信息
+        $time = time(); //时间戳
 
-        $arr = [$token , $timestamp , $nonce ];
-        sort( $arr ,SORT_STRING );
+        $tpl = "<xml>  <ToUserName>< ![CDATA[%s] ]></ToUserName>
+                       <FromUserName>< ![CDATA[%s] ]></FromUserName> 
+                       <CreateTime>%s</CreateTime> 
+                       <MsgType>< ![CDATA[%s] ]></MsgType>
+                       <Content>< ![CDATA[%s] ]></Content>
+                       </xml>";
 
-        $str  = implode( '' , $arr );
-        $str  = sha1($str);
-
-        if( $str === $signatrue )
+        if($msgType == 'text')
         {
-            return $_GET['echostr'];
+            $msgtype = 'text';
+            $contents = '张誉';
+            $sprintf = sprintf($tpl,$toUsername,$fromUsername,$time,$msgtype,$contents);
+            echo $sprintf;
         }
     }
 }

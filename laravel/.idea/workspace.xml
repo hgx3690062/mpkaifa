@@ -24,9 +24,11 @@
       <file leaf-file-name="WxController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WxController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-              <folding />
+            <state relative-caret-position="450">
+              <caret line="35" column="26" lean-forward="false" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+              <folding>
+                <marker date="1517886522000" expanded="true" signature="595:908" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,6 +54,9 @@
       </GulpfileState>
     </gulpfiles>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpServers">
+    <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" fullScreen="true">
@@ -126,6 +131,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="7927881e-2b98-4f8c-9e17-1663240959a8" name="Default" comment="" />
@@ -133,12 +141,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1517884099353</updated>
-      <workItem from="1517884102899" duration="1011000" />
+      <workItem from="1517884102899" duration="1767000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1011000" />
+    <option name="totallyTimeSpent" value="1767000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -193,9 +201,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WxController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-          <folding />
+        <state relative-caret-position="450">
+          <caret line="35" column="26" lean-forward="false" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+          <folding>
+            <marker date="1517886522000" expanded="true" signature="595:908" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
