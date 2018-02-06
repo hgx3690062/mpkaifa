@@ -14,20 +14,22 @@ class WxController extends Controller
     {
 
 
-            $signatrue   = $_GET['signatrue'];
-            $token         = 'zhangyu';
-            $timestamp = $_GET['timestamp'];
-            $nonce         = $_GET['nonce'];
-            $arr = [$token, $timestamp, $nonce];
-            sort($arr, SORT_STRING);
+        $signatrue   = $_GET['signatrue'];
+        $token         = 'zhangyu';
+        $timestamp = $_GET['timestamp'];
+        $nonce         = $_GET['nonce'];
 
-            $str = implode('', $arr);
-            $str = sha1($str);
+        $arr = [$token , $timestamp , $nonce ];
+        sort( $arr ,SORT_STRING );
 
-            if ($str === $signatrue) {
-                return $_GET['echostr'];
-                exit;
-            }
+        $str  = implode( '' , $arr );
+        $str  = sha1($str);
+
+        if( $str === $signatrue )
+        {
+            return $_GET['echostr'];
+            exit;
+        }
 
 //
 //                        $xml =  $GLOBALS['HTTP_RAW_POST_DATA'];
