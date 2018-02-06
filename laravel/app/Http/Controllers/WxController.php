@@ -13,8 +13,8 @@ class WxController extends Controller
 {
     public function index()
     {
-        $signatrue     = $_GET['signatrue'];
-        $token         = 'weixin';
+        $signatrue     = $_GET['signature'];
+        $token         = 'zhangyu';
         $timestamp     = $_GET['timestamp'];
         $nonce         = $_GET['nonce'];
 
@@ -27,7 +27,6 @@ class WxController extends Controller
         if( $str === $signatrue )
         {
             return $_GET['echostr'];
-            exit;
         }
     }
 }
