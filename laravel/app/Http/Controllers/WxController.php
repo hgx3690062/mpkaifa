@@ -16,11 +16,11 @@ class WxController extends Controller
 
 //        $postStr = isset($GLOBALS['HTTP_RAW_POST_DATA']) ? $GLOBALS['HTTP_RAW_POST_DATA'] : file_get_contents("php://input");
         $xml = "<xml> 
-                   <ToUserName>< ![CDATA[toUser] ]></ToUserName>  
-                   <FromUserName>< ![CDATA[fromUser] ]></FromUserName>  
+                   <ToUserName><![CDATA[toUser]]></ToUserName>  
+                   <FromUserName><![CDATA[fromUser]]></FromUserName>  
                    <CreateTime>1348831860</CreateTime>  
-                   <MsgType>< ![CDATA[text] ]></MsgType>  
-                   <Content>< ![CDATA[this is a test] ]></Content>  
+                   <MsgType><![CDATA[text]]></MsgType>  
+                   <Content><![CDATA[this is a test]]></Content>  
                    <MsgId>1234567890123456</MsgId>  
                  </xml>";
         $postObj = simplexml_load_string($xml,'SimpleXMLElement',LIBXML_NOCDATA);
