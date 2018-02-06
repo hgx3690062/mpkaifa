@@ -15,22 +15,34 @@ class WxController extends Controller
     public function index()
     {
 
-        $options = [
-            'debug'  => true,
-            'app_id'  => 'wx25aa36a54cfd3f2a',
-            'secret'   => 'ead7750606259b3984876560715172f9',
-            'token'    => 'weixin',
-            'log'       => [
-                'level'   =>  'debug',
-                'file'     =>__DIR__.'/wechat.log',
-            ]
-        ];
+//        $options = [
+//            'debug'  => true,
+//            'app_id'  => 'wx25aa36a54cfd3f2a',
+//            'secret'   => 'ead7750606259b3984876560715172f9',
+//            'token'    => 'weixin',
+//            'log'       => [
+//                'level'   =>  'debug',
+//                'file'     =>__DIR__.'/wechat.log',
+//            ]
+//        ];
 //
+//        $app  = new Application($options);
+//        $response = $app->server->serve();
+//        return $response;
+        $signatrue   = $_GET['signatrue'];
+        $token         = 'weixin';
+        $timestamp = $_GET['timestamp'];
+        $nonce         = $_GET['nonce'];
+        $arr = [$token, $timestamp, $nonce];
+        sort($arr, SORT_STRING);
 
-        $app  = new Application($options);
-        $response = $app->server->serve();
-        return $response;
+        $str = implode('', $arr);
+        $str = sha1($str);
 
+        if ($str === $signatrue) {
+            return $_GET['echostr'];
+            exit;
+        }
 
 
 //        new Factory()
