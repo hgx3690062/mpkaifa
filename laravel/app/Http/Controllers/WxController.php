@@ -13,8 +13,6 @@ class WxController extends Controller
 {
     public function index()
     {
-
-
         if(isset($_GET['echostr'])) {
             $signatrue   = $_GET['signatrue'];
             $token         = 'weixin';
@@ -32,7 +30,8 @@ class WxController extends Controller
             }
 
         }
-        else {
+        else
+        {
 
             //        $xml = "<xml>
             //                   <ToUserName><![CDATA[toUser]]></ToUserName>
@@ -42,7 +41,7 @@ class WxController extends Controller
             //                   <Content><![CDATA[this is a test]]></Content>
             //                   <MsgId>1234567890123456</MsgId>
             //                 </xml>";
-                        $xml = $GLOBALS['HTTP_RAW_POST_DATA'];
+                        $xml = $HTTP_RAW_POST_DATA;
                         $postObj = simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
 
 
