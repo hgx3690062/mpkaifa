@@ -70,14 +70,13 @@
     <h1>Whoops, looks like something went wrong.</h1>
     <h2 class="block_exception clear_fix">
         <span class="exception_counter">1/1</span>
-        <span class="exception_title"><abbr title="ErrorException">ErrorException</abbr> in <a title="/home/wwwroot/default/mpkaifa/laravel/app/Http/Controllers/WxController.php line 18" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;">WxController.php line 18</a>:</span>
-        <span class="exception_message">simplexml_load_string() expects parameter 2 to be a class name derived from SimpleXMLElement, &#039;16384&#039; given</span>
+        <span class="exception_title"><abbr title="ErrorException">ErrorException</abbr> in <a title="/home/wwwroot/default/mpkaifa/laravel/app/Http/Controllers/WxController.php line 19" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;">WxController.php line 19</a>:</span>
+        <span class="exception_message">Trying to get property of non-object</span>
     </h2>
     <div class="block">
         <ol class="traces list_exception">
-            <li> in <a title="/home/wwwroot/default/mpkaifa/laravel/app/Http/Controllers/WxController.php line 18" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;">WxController.php line 18</a></li>
-            <li>at <abbr title="Illuminate\Foundation\Bootstrap\HandleExceptions">HandleExceptions</abbr>->handleError('2', 'simplexml_load_string() expects parameter 2 to be a class name derived from SimpleXMLElement, &#039;16384&#039; given', '/home/wwwroot/default/mpkaifa/laravel/app/Http/Controllers/WxController.php', '18', <em>array</em>('postStr' => ''))</li>
-            <li>at <abbr title=""></abbr>simplexml_load_string('', '16384') in <a title="/home/wwwroot/default/mpkaifa/laravel/app/Http/Controllers/WxController.php line 18" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;">WxController.php line 18</a></li>
+            <li> in <a title="/home/wwwroot/default/mpkaifa/laravel/app/Http/Controllers/WxController.php line 19" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;">WxController.php line 19</a></li>
+            <li>at <abbr title="Illuminate\Foundation\Bootstrap\HandleExceptions">HandleExceptions</abbr>->handleError('8', 'Trying to get property of non-object', '/home/wwwroot/default/mpkaifa/laravel/app/Http/Controllers/WxController.php', '19', <em>array</em>('postStr' => '', 'postObj' => <em>false</em>)) in <a title="/home/wwwroot/default/mpkaifa/laravel/app/Http/Controllers/WxController.php line 19" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;">WxController.php line 19</a></li>
             <li>at <abbr title="App\Http\Controllers\WxController">WxController</abbr>->index()</li>
             <li>at <abbr title=""></abbr>call_user_func_array(<em>array</em>(<em>object</em>(<abbr title="App\Http\Controllers\WxController">WxController</abbr>), 'index'), <em>array</em>()) in <a title="/home/wwwroot/default/mpkaifa/laravel/vendor/laravel/framework/src/Illuminate/Routing/Controller.php line 256" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;">Controller.php line 256</a></li>
             <li>at <abbr title="Illuminate\Routing\Controller">Controller</abbr>->callAction('index', <em>array</em>()) in <a title="/home/wwwroot/default/mpkaifa/laravel/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php line 164" ondblclick="var f=this.innerHTML;this.innerHTML=this.title;this.title=f;">ControllerDispatcher.php line 164</a></li>
