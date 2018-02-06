@@ -15,10 +15,22 @@ class WxController extends Controller
     {
 
 //        $postStr = isset($GLOBALS['HTTP_RAW_POST_DATA']) ? $GLOBALS['HTTP_RAW_POST_DATA'] : file_get_contents("php://input");
-        $xml = "<xml>  <ToUserName>< ![CDATA[toUser] ]></ToUserName>  <FromUserName>< ![CDATA[fromUser] ]></FromUserName>  <CreateTime>1348831860</CreateTime>  <MsgType>< ![CDATA[text] ]></MsgType>  <Content>< ![CDATA[this is a test] ]></Content>  <MsgId>1234567890123456</MsgId>  </xml>";
-        $postObj   = simplexml_load_string($xml,'SimpleXMLElement',LIBXML_NOCDATA);
+        $xml = "<xml> 
+                   <ToUserName>< ![CDATA[toUser] ]></ToUserName>  
+                   <FromUserName>< ![CDATA[fromUser] ]></FromUserName>  
+                   <CreateTime>1348831860</CreateTime>  
+                   <MsgType>< ![CDATA[text] ]></MsgType>  
+                   <Content>< ![CDATA[this is a test] ]></Content>  
+                   <MsgId>1234567890123456</MsgId>  
+                 </xml>";
+        $postObj = simplexml_load_string($xml,'SimpleXMLElement',LIBXML_NOCDATA);
 
-        dd($postObj);
+         var_dump($postObj);
+         echo $postObj->ToUserName;
+         echo '<br>';
+         echo $postObj->Content;
+
+
 //        $toUsername = $postObj->FromUserName; //用户微信号
 //        $fromUsername = $postObj->ToUserName; //开发者微信号
 //        $msgType = $postObj->MsgType; //回复类型
