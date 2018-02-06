@@ -13,13 +13,13 @@ class WxController extends Controller
 {
     public function index()
     {
-        $signatrue   = $_GET['signatrue'];
-        $token         = 'weixin';
-        $timestamp = $_GET['timestamp'];
-        $nonce         = $_GET['nonce'];
 
-        if($_GET['echostr']) {
 
+        if(isset($_GET['echostr'])) {
+            $signatrue   = $_GET['signatrue'];
+            $token         = 'weixin';
+            $timestamp = $_GET['timestamp'];
+            $nonce         = $_GET['nonce'];
             $arr = [$token, $timestamp, $nonce];
             sort($arr, SORT_STRING);
 
