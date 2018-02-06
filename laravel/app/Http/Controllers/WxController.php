@@ -13,8 +13,9 @@ class WxController extends Controller
 {
     public function index()
     {
-        $poststr = $GLOBALS['HTTP_RAW_POST_DATA'];
-        $postObj   = simplexml_load_string($poststr,'SimpleXMLElement',LIBXML_NOCDATA);
+
+        $postStr = isset($GLOBALS['HTTP_RAW_POST_DATA']) ? $GLOBALS['HTTP_RAW_POST_DATA'] : file_get_contents("php://input");
+        $postObj   = simplexml_load_string($postStr,'SimpleXMLElement',LIBXML_NOCDATA);
         $toUsername = $postObj->FromUserName; //用户微信号
         $fromUsername = $postObj->ToUserName; //开发者微信号
         $msgType = $postObj->MsgType; //回复类型
