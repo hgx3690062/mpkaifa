@@ -15,7 +15,7 @@ class WxController extends Controller
 
         $postStr = $GLOBALS['HTTP_RAW_POST_DATA'];
 
-        file_put_contents(__DIR__,$postStr);
+        file_put_contents(__DIR__.'/wechat.log',$postStr);
 
 //        $appId = 'wx8d75fb66b9f2a882';
 //        $appSecret = 'd80927fc1c975d3ff36a5aad6f9d9766';
