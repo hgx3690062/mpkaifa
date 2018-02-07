@@ -32,7 +32,7 @@ class WxController extends Controller
 //        });
 //        return  $app->server->serve();
     }
-     public function auth_wechat(){
+     public function index(){
         $response = $this->app->oauth->scopes(['snsapi_userinfo'])
             ->redirect(url('user/sign'));
         return $response;
