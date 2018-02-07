@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 use EasyWeChat\Factory;
 use EasyWeChat\Kernel\Messages\Transfer;
+use EasyWeChat\Kernel\Messages\Article;
 class WxController extends Controller
 {
     protected $app ;
@@ -36,7 +37,12 @@ class WxController extends Controller
              }
              if($message['MsgType'] == 'text')
              {
-                 return $this->app->broadcasting->sendText("大家好！欢迎使用 EasyWeChat。");
+                 return  new Article([
+                     'title'   => 'EasyWeChat',
+                     'author'  => 'overtrue',
+                     'content' => 'EasyWeChat 是一个开源的微信 SDK，它... ...',
+                     // ...
+                 ]);
              }
 
 
