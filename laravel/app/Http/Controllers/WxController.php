@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 use EasyWeChat\Factory;
+use EasyWeChat\Kernel\Messages\Transfer;
 class WxController extends Controller
 {
     protected $app ;
@@ -28,7 +29,7 @@ class WxController extends Controller
          $this->app->server->push(function ($message) {
              if($message['MsgType'] == 'event'){
 //                 return '欢迎关注 |虫象互娱| 科技公司';
-                 return view('index');
+                 return new Transfer();
              }
 
 
