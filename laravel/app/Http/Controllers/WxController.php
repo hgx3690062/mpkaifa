@@ -15,8 +15,8 @@ class WxController extends Controller
     {
 
         $config = [
-            'app_id' => 'wx25aa36a54cfd3f2a',
-            'secret' => 'ead7750606259b3984876560715172f9',
+            'app_id' => 'wx8d75fb66b9f2a882',
+            'secret' => '2a43f2737dec1eaa01667ecbacd97e5b',
             'token'  => 'zhangyuqwe',
             'response_type' => 'array',
 
@@ -32,5 +32,6 @@ class WxController extends Controller
             return "您好！欢迎使用 EasyWeChat!";
         });
         return  $app->server->serve();
+        dd($app->server->serve());
     }
 }
