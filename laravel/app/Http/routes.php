@@ -17,5 +17,9 @@ Route::get('/', function () {
 
 Route::any('/wx','WxController@index');
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
-    Route::get('user','WxController@user');
+    Route::get('/wx', function () {
+        $user = session('wechat.oauth_user'); // 拿到授权用户资料
+
+        return view('index',compact('user'));
+    });
 });

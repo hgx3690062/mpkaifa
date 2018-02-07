@@ -28,8 +28,7 @@ class WxController extends Controller
      public function index(){
          $this->app->server->push(function ($message) {
              if($message['MsgType'] == 'event'){
-//                 return '欢迎关注 |虫象互娱| 科技公司';
-                 return new Transfer();
+                 return '欢迎关注 |虫象互娱| 科技公司';
              }
 
 
@@ -38,13 +37,5 @@ class WxController extends Controller
          return  $this->app->server->serve();
     }
 
-    public function user()
-    {
 
-    }
-//Route::get('/user', function () {
-//    $user = session('wechat.oauth_user'); // 拿到授权用户资料
-//
-//    return
-//    });
 }

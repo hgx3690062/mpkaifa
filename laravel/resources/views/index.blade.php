@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-   <h1>nihao</h1>
+   <h1>{{ $user->getNickname() }}</h1>
 </body>
 </html>
