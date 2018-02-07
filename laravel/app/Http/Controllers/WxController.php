@@ -14,31 +14,31 @@ class WxController extends Controller
 {
     public function index()
     {
-//        Log::info('request arrived.'); # 注意：Log 为 Laravel 组件，所以它记的日志去 Laravel 日志看，而不是 EasyWeChat 日志
+        Log::info('request arrived.'); # 注意：Log 为 Laravel 组件，所以它记的日志去 Laravel 日志看，而不是 EasyWeChat 日志
+
+        $app = app('wechat.official_account');
+        $app->server->push(function($message){
+            return "欢迎关注 overtrue！";
+        });
+
+        return $app->server->serve();
 //
-//        $app = app('wechat.official_account');
-//        $app->server->push(function($message){
-//            return "欢迎关注 overtrue！";
-//        });
+//        $config = [
+//            'app_id' => 'wx8d75fb66b9f2a882',
+//            'secret' => 'd80927fc1c975d3ff36a5aad6f9d9766',
 //
-//        return $app->server->serve();
-
-        $config = [
-            'app_id' => 'wx8d75fb66b9f2a882',
-            'secret' => 'd80927fc1c975d3ff36a5aad6f9d9766',
-
-            // 指定 API 调用返回结果的类型：array(default)/collection/object/raw/自定义类名
-            'response_type' => 'array',
-
-            'log' => [
-                'level' => 'debug',
-                'file' => __DIR__ . '/wechat.log',
-            ],
-        ];
-
-        $app = Factory::officialAccount($config);
-        $response = $app->server->serve();
-        return $response;
+//            // 指定 API 调用返回结果的类型：array(default)/collection/object/raw/自定义类名
+//            'response_type' => 'array',
+//
+//            'log' => [
+//                'level' => 'debug',
+//                'file' => __DIR__ . '/wechat.log',
+//            ],
+//        ];
+//
+//        $app = Factory::officialAccount($config);
+//        $response = $app->server->serve();
+//        return $response;
 //        $server = $app->server;
 //        $user = $app->user;
 //
