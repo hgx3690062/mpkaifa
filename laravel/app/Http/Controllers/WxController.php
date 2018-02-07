@@ -31,8 +31,24 @@ class WxController extends Controller
                  return '欢迎关注 |虫象互娱| 科技公司';
              }
 
+             if($message['MsgType'] == 'text')
+             {
+                 $text = new Text();
+                 $text->setAttribute('content', '您好！overtrue。');
+             }
+
 
          });
          return  $this->app->server->serve();
     }
+
+    public function user()
+    {
+
+    }
+//Route::get('/user', function () {
+//    $user = session('wechat.oauth_user'); // 拿到授权用户资料
+//
+//    return
+//    });
 }

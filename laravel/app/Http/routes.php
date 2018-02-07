@@ -16,3 +16,6 @@ Route::get('/', function () {
 });
 
 Route::any('/wx','WxController@index');
+Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+    Route::get('user','WxController@user');
+});
