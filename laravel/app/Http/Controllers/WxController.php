@@ -17,7 +17,7 @@ class WxController extends Controller
         $config = [
             'app_id' => 'wx25aa36a54cfd3f2a',
             'secret' => 'ead7750606259b3984876560715172f9',
-            'token'  => 'zhangyu',
+            'token'  => 'zhangyuqwe',
 
 //            // 指定 API 调用返回结果的类型：array(default)/collection/object/raw/自定义类名
 //            'response_type' => 'array',
@@ -29,8 +29,7 @@ class WxController extends Controller
         ];
 
         $app = Factory::officialAccount($config);
-        $response = $app->server->serve();
-        return $response;
+        return  $app->server->serve();
 //        $server = $app->server;
 //        $user = $app->user;
 //
