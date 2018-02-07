@@ -7,52 +7,38 @@
  */
 
 namespace App\Http\Controllers;
+use EasyWeChat\Factory;
 
 class WxController extends Controller
 {
     public function index()
     {
-        $postStr = isset($GLOBALS['HTTP_RAW_POST_DATA'])?$GLOBALS['HTTP_RAW_POST_DATA']:file_get_contents("php://input");
-        file_put_contents(__DIR__.'/wechat.log',$postStr);
 
-//        $appId = 'wx8d75fb66b9f2a882';
-//        $appSecret = 'd80927fc1c975d3ff36a5aad6f9d9766';
-//
-//        $access = '6_HoYWiqmaT8m5C0X9xuH5th_B8wdjjJDeA_AIcFSTbfvgLUAtxl7fwMgZZ4RIENmRfVCmdgFUUJy0uoio0vhzV4_4MOMP_3bFlQZ3PQyq9dxRVoglRLqj5VkNqMJo1KuQn5YOB6KNR1BIYgn-FKHdAGABGD';
-//        //curl 使用get获取access_token
-//        $ch = curl_init();  //开启curl
-//        //需要访问的地址
-////        $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.$appId.'&secret='.$appSecret;
-//        $url = 'https://api.weixin.qq.com/cgi-bin/getcallbackip?access_token='.$access;
-//
-//        curl_setopt($ch,CURLOPT_URL,$url); //写入要访问的地址
-//
-//        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1); //声明最后的结果不直接输入而是赋给一个变量curl_exec($ch)
-//
-//        curl_setopt($ch,CURLOPT_HEADER,0);//header的头出了问题0是隐藏掉;
-//
-//        curl_setopt($ch,CURLOPT_TIMEOUT,10);//10秒
-//
-//        $output = curl_exec($ch);
-//
-//        dd($output);
-//        exit;
-//        $signatrue   = $_GET['signature'];
-//        $token         = 'zhangyu';
-//        $timestamp = $_GET['timestamp'];
-//        $nonce         = $_GET['nonce'];
-//
-//        $arr = [$token , $timestamp , $nonce ];
-//        sort( $arr ,SORT_STRING );
-//
-//        $str  = implode( '' , $arr );
-//        $str  = sha1($str);
-//
-//        if( $str === $signatrue )
-//        {
-//            return $_GET['echostr'];
-//            exit;
-//        }
+        $config = [
+            'app_id' => 'wx8d75fb66b9f2a882',
+            'secret' => 'd80927fc1c975d3ff36a5aad6f9d9766',
 
+            // 指定 API 调用返回结果的类型：array(default)/collection/object/raw/自定义类名
+            'response_type' => 'array',
+
+            'log' => [
+                'level' => 'debug',
+                'file' => __DIR__ . '/wechat.log',
+            ],
+        ];
+
+        $app = Factory::officialAccount($config);
+        $response = $app->server->serve();
+        return $response;
+//        $server = $app->server;
+//        $user = $app->user;
+//
+//        $server->push(function($message) use ($user) {
+//            $fromUser = $user->get($message['FromUserName']);
+//
+//            return "{$fromUser->nickname} 您好！欢迎关注 overtrue!";
+//        });
+//
+//        $server->serve()->send();
     }
 }
