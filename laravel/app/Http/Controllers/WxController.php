@@ -23,18 +23,16 @@ class WxController extends Controller
         ];
 
         $this->app = Factory::officialAccount($config);
-        $this->app->server->push(function ($message) {
-                    if($message['MsgType'] == 'event'){
-                        return '欢迎关注 |虫象互娱| 科技公司';
-                    }
 
-
-        });
-        return  $this->app->server->serve();
     }
      public function index(){
-        $response = $this->app->oauth->scopes(['snsapi_userinfo'])
-            ->redirect(url('user/sign'));
-        return $response;
+         $this->app->server->push(function ($message) {
+             if($message['MsgType'] == 'event'){
+                 return '欢迎关注 |虫象互娱| 科技公司';
+             }
+
+
+         });
+         return  $this->app->server->serve();
     }
 }
