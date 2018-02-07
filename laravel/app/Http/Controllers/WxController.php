@@ -8,9 +8,7 @@
 
 namespace App\Http\Controllers;
 use EasyWeChat\Factory;
-use EasyWeChat\Kernel\Messages\Transfer;
-use EasyWeChat\Kernel\Messages\News;
-use EasyWeChat\Kernel\Messages\NewsItem;
+
 class WxController extends Controller
 {
     protected $app ;
@@ -32,27 +30,33 @@ class WxController extends Controller
 
     }
      public function index(){
+
          $this->app->server->push(function ($message) {
+
              if($message['MsgType'] == 'event'){
                  return '欢迎关注 |虫象互娱| 科技公司';
              }
              if($message['MsgType'] == 'text')
              {
-                 $items = [
-                     new NewsItem([
-                         'title'       => '张誉',
-                         'description' => '时间如在昨日',
-                         'url'         => 'www.baidu.com',
-                         'image'       => 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518594074&di=8b54035ad2274c1f5a84c183dc24b895&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01711b59426ca1a8012193a31e5398.gif',
-                     ]),
-                ];
-                return new News($items);
+//                 $items = [
+//                     new NewsItem([
+//                         'title'       => '张誉',
+//                         'description' => '时间如在昨日',
+//                         'url'         => 'www.baidu.com',
+//                         'image'       => 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518594074&di=8b54035ad2274c1f5a84c183dc24b895&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01711b59426ca1a8012193a31e5398.gif',
+//                     ]),
+//                ];
+//                return new News($items);
+                 dd($message->user->list());
+
              }
 
 
 
          });
          return  $this->app->server->serve();
+
+
     }
 
 
