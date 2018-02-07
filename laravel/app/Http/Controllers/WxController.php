@@ -12,9 +12,7 @@ class WxController extends Controller
 {
     public function index()
     {
-
-        $postStr = $GLOBALS['HTTP_RAW_POST_DATA'];
-
+        $postStr = isset($GLOBALS['HTTP_RAW_POST_DATA'])?$GLOBALS['HTTP_RAW_POST_DATA']:file_get_contents("php://input");
         file_put_contents(__DIR__.'/wechat.log',$postStr);
 
 //        $appId = 'wx8d75fb66b9f2a882';
