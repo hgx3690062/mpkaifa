@@ -23,7 +23,13 @@ class WxController extends Controller
 
         $app = Factory::officialAccount($config);
         $app->server->push(function ($message) {
-            return $message;
+//            return "您好！欢迎使用 EasyWeChat!";
+            switch ($message['MsgType']) {
+                case 'event':
+                    return '欢迎关注 |虫象互娱| 科技公司';
+                    break;
+
+            }
         });
         return  $app->server->serve();
     }
