@@ -47,7 +47,16 @@ class WxController extends Controller
 //                     ]),
 //                ];
 //                return new News($items);
-                 return $message->template_message->getIndustry();
+               $ams = $this->app->template_message->sendSubscription([
+                     'touser' => 'user-openid',
+                     'template_id' => 'template-id',
+                     'url' => 'https://easywechat.org',
+                     'scene' => 1000,
+                     'data' => [
+                         'key1' => 'VALUE',
+                ],
+            ]);
+               return $ams;
              }
 
 
