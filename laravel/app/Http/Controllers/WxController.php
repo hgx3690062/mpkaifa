@@ -18,14 +18,12 @@ class WxController extends Controller
             'app_id' => 'wx25aa36a54cfd3f2a',
             'secret' => 'ead7750606259b3984876560715172f9',
             'token'  => 'zhangyuqwe',
+            'response_type' => 'array',
 
-//            // 指定 API 调用返回结果的类型：array(default)/collection/object/raw/自定义类名
-//            'response_type' => 'array',
-//
-//            'log' => [
-//                'level' => 'debug',
-//                'file' => __DIR__ . '/wechat.log',
-//            ],
+            'log' => [
+                'level' => 'debug',
+                'file' => __DIR__.'/wechat.log',
+            ],
         ];
 
 
