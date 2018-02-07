@@ -25,12 +25,10 @@ class WxController extends Controller
 //            ],
         ];
 
-        \Log::info('request arrived.');
         $app = Factory::officialAccount($config);
         $app->server->push(function ($message) {
             return "您好！欢迎使用 EasyWeChat!";
         });
         return  $app->server->serve();
-        dd($app->server->serve());
     }
 }
