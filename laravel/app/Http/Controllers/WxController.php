@@ -25,17 +25,17 @@ class WxController extends Controller
         $this->app = Factory::officialAccount($config);
 
     }
-     public function index(){
-         $this->app->server->push(function ($message) {
-             if($message['MsgType'] == 'event'){
-                 return '欢迎关注 |虫象互娱| 科技公司';
-             }
-
-
-
-         });
-         return  $this->app->server->serve();
-    }
+//     public function index(){
+//         $this->app->server->push(function ($message) {
+//             if($message['MsgType'] == 'event'){
+//                 return '欢迎关注 |虫象互娱| 科技公司';
+//             }
+//
+//
+//
+//         });
+//         return  $this->app->server->serve();
+//    }
 
 
 }
