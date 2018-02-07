@@ -24,8 +24,8 @@
       <file leaf-file-name="WxController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WxController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+            <state relative-caret-position="417">
+              <caret line="42" column="571" lean-forward="false" selection-start-line="42" selection-start-column="571" selection-end-line="42" selection-end-column="571" />
               <folding>
                 <element signature="e#124#147#0#PHP" expanded="true" />
               </folding>
@@ -161,12 +161,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1517884099353</updated>
-      <workItem from="1517884102899" duration="27488000" />
+      <workItem from="1517884102899" duration="27761000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27488000" />
+    <option name="totallyTimeSpent" value="27761000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -325,10 +325,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/overtrue/wechat/src/Kernel/Messages/Text.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/overtrue/wechat/src/Kernel/Messages/Image.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WxController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+        <state relative-caret-position="417">
+          <caret line="42" column="571" lean-forward="false" selection-start-line="42" selection-start-column="571" selection-end-line="42" selection-end-column="571" />
           <folding>
             <element signature="e#124#147#0#PHP" expanded="true" />
           </folding>
