@@ -17,8 +17,8 @@ class WxController extends Controller
     public function __construct()
     {
         $config = [
-            'app_id' => 'wx8d75fb66b9f2a882',
-            'secret' => '2a43f2737dec1eaa01667ecbacd97e5b',
+            'app_id' => 'wx25aa36a54cfd3f2a',
+            'secret' => 'ead7750606259b3984876560715172f9',
             'token'  => 'zhangyuqwe',
             'response_type' => 'array',
             'log' => [
@@ -38,25 +38,15 @@ class WxController extends Controller
              }
              if($message['MsgType'] == 'text')
              {
-//                 $items = [
-//                     new NewsItem([
-//                         'title'       => '张誉',
-//                         'description' => '时间如在昨日',
-//                         'url'         => 'www.baidu.com',
-//                         'image'       => 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518594074&di=8b54035ad2274c1f5a84c183dc24b895&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01711b59426ca1a8012193a31e5398.gif',
-//                     ]),
-//                ];
-//                return new News($items);
-               $ams = $this->app->template_message->sendSubscription([
-                     'touser' => 'user-openid',
-                     'template_id' => 'template-id',
-                     'url' => 'https://easywechat.org',
-                     'scene' => 1000,
-                     'data' => [
-                         'key1' => 'VALUE',
-                ],
-            ]);
-               return $ams;
+                 $items = [
+                     new NewsItem([
+                         'title'       => '张誉',
+                         'description' => '时间如在昨日',
+                         'url'         => 'www.baidu.com',
+                         'image'       => 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518594074&di=8b54035ad2274c1f5a84c183dc24b895&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01711b59426ca1a8012193a31e5398.gif',
+                     ]),
+                ];
+                return new News($items);
              }
 
 
