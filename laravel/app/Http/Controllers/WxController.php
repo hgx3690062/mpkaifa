@@ -11,6 +11,7 @@ use EasyWeChat\Factory;
 use EasyWeChat\Kernel\Messages\Text;
 use EasyWeChat\Kernel\Messages\News;
 use EasyWeChat\Kernel\Messages\NewsItem;
+use EasyWeChat\Kernel\Messages\Article;
 class WxController extends Controller
 {
     protected $app ;
@@ -35,17 +36,24 @@ class WxController extends Controller
 
              if($message['MsgType'] == 'text')
              {
-                 $items = [
-                     new NewsItem([
-                         'title'       => '大天使',
-                         'description' => '...',
-                         'url'         => 'http://image.baidu.com/search/detail?ct=503316480&z=undefined&tn=baiduimagedetail&ipn=d&word=%E5%9B%BE%E7%89%87&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=undefined&cs=3357021395,3491635869&os=332373507,1834882683&simid=0,0&pn=1&rn=1&di=6218379970&ln=1981&fr=&fmq=1517982648787_R&fm=&ic=undefined&s=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&is=0,0&istype=0&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&objurl=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01711b59426ca1a8012193a31e5398.gif&rpstart=0&rpnum=0&adpicid=0',
-                         'image'       => 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518587553&di=9844748cf55c841dd907040eb724eb75&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01711b59426ca1a8012193a31e5398.gif',
-                         // ...
-                     ]),
-            ];
-            $news = new News($items);
-            return $news;
+//                 $items = [
+//                     new NewsItem([
+//                         'title'       => '大天使',
+//                         'description' => '...',
+//                         'image'       => 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518587553&di=9844748cf55c841dd907040eb724eb75&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01711b59426ca1a8012193a31e5398.gif',
+//                         // ...
+//                     ]),
+//            ];
+//            $news = new News($items);
+//            return $news;
+                 $article = new Article([
+                     'title'   => '张誉',
+                     'author'  => '胡',
+                     'content' => '虽然时间已经远去，但又仿佛在昨天！',
+                     'source_url' => 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518587553&di=9844748cf55c841dd907040eb724eb75&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01711b59426ca1a8012193a31e5398.gif',
+                     'show_cover' =>1,
+                 ]);
+                 return $article;
              }
 
 
