@@ -8,11 +8,12 @@
 
 namespace App\Http\Controllers;
 use EasyWeChat\Factory;
+use EasyWeChat\Kernel\Messages\Text;
 class WxController extends Controller
 {
-    public function index()
+    protected $app ;
+    public function __construct()
     {
-
         $config = [
             'app_id' => 'wx8d75fb66b9f2a882',
             'secret' => '2a43f2737dec1eaa01667ecbacd97e5b',
@@ -21,19 +22,19 @@ class WxController extends Controller
 
         ];
 
-        $app = Factory::officialAccount($config);
-        $app->server->push(function ($message) {
-//            return "您好！欢迎使用 EasyWeChat!";
-//            switch ($message['MsgType']) {
-//                case 'event':
+        $this->app = Factory::officialAccount($config);
+//        $app->server->push(function ($message) {
+//                    if($message['MsgType'] == 'event'){
+//                        return '欢迎关注 |虫象互娱| 科技公司';
+//                    }
 //
-//                    break;
-                    if($message['MsgType'] == 'event'){
-                        return '欢迎关注 |虫象互娱| 科技公司';
-                    }
-
-//            }
-        });
-        return  $app->server->serve();
+//
+//        });
+//        return  $app->server->serve();
+    }
+     public function auth_wechat(){
+        $response = $this->app->oauth->scopes(['snsapi_userinfo'])
+            ->redirect(url('user/sign'));
+        return $response;
     }
 }
