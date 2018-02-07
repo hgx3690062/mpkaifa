@@ -34,6 +34,10 @@ class WxController extends Controller
              if($message['MsgType'] == 'event'){
                  return '欢迎关注 |虫象互娱| 科技公司';
              }
+             if($message['MsgType'] == 'text')
+             {
+                 return $this->app->broadcasting->sendText("大家好！欢迎使用 EasyWeChat。");
+             }
 
 
 
