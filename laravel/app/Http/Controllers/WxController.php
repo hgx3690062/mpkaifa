@@ -47,7 +47,7 @@ class WxController extends Controller
 //                     ]),
 //                ];
 //                return new News($items);
-                 dd($message->user->list());
+                 return $message->user->list();
 
              }
 
