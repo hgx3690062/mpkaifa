@@ -8,7 +8,6 @@
 
 namespace App\Http\Controllers;
 use EasyWeChat\Factory;
-
 class WxController extends Controller
 {
     public function index()
@@ -26,7 +25,7 @@ class WxController extends Controller
 //            ],
         ];
 
-
+        \Log::info('request arrived.');
         $app = Factory::officialAccount($config);
         $app->server->push(function ($message) {
             return "您好！欢迎使用 EasyWeChat!";
