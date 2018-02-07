@@ -53,7 +53,8 @@ class WxController extends Controller
                      'source_url' => 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518587553&di=9844748cf55c841dd907040eb724eb75&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01711b59426ca1a8012193a31e5398.gif',
                      'show_cover' =>1,
                  ]);
-                 return $article;
+                 $news = new News($article);
+                 return $news;
              }
 
 
