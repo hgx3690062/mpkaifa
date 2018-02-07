@@ -34,7 +34,7 @@ class WxController extends Controller
              if($message['MsgType'] == 'text')
              {
                  $text = new Text();
-                 $text->setAttribute('content', '您好！overtrue。');
+                  return  $text->setAttribute('content', '您好！overtrue。');
              }
 
 
