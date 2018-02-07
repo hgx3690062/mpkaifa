@@ -19,15 +19,11 @@ class WxController extends Controller
             'token'  => 'zhangyuqwe',
             'response_type' => 'array',
 
-//            'log' => [
-//                'level' => 'debug',
-//                'file' => __DIR__.'/wechat.log',
-//            ],
         ];
 
         $app = Factory::officialAccount($config);
         $app->server->push(function ($message) {
-            return "您好！欢迎使用 EasyWeChat!";
+            return $message;
         });
         return  $app->server->serve();
     }
