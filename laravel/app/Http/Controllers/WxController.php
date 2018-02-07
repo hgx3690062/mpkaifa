@@ -19,23 +19,27 @@ class WxController extends Controller
             'secret' => '2a43f2737dec1eaa01667ecbacd97e5b',
             'token'  => 'zhangyuqwe',
             'response_type' => 'array',
+            'log' => [
+                'level' => 'debug',
+                'file' => storage_path('logs/wechat.log'),
+            ],
 
         ];
 
         $this->app = Factory::officialAccount($config);
 
     }
-//     public function index(){
-//         $this->app->server->push(function ($message) {
-//             if($message['MsgType'] == 'event'){
-//                 return '欢迎关注 |虫象互娱| 科技公司';
-//             }
-//
-//
-//
-//         });
-//         return  $this->app->server->serve();
-//    }
+     public function index(){
+         $this->app->server->push(function ($message) {
+             if($message['MsgType'] == 'event'){
+                 return '欢迎关注 |虫象互娱| 科技公司';
+             }
+
+
+
+         });
+         return  $this->app->server->serve();
+    }
 
 
 }
