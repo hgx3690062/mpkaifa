@@ -28,7 +28,7 @@
               <caret line="69" column="6" lean-forward="true" selection-start-line="69" selection-start-column="6" selection-end-line="69" selection-end-column="6" />
               <folding>
                 <element signature="e#124#147#0#PHP" expanded="true" />
-                <element signature="e#3330#3550#0#PHP" expanded="false" />
+                <element signature="e#3328#3548#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -188,12 +188,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1517884099353</updated>
-      <workItem from="1517884102899" duration="53157000" />
+      <workItem from="1517884102899" duration="53206000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53157000" />
+    <option name="totallyTimeSpent" value="53206000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -438,7 +438,7 @@
           <caret line="69" column="6" lean-forward="true" selection-start-line="69" selection-start-column="6" selection-end-line="69" selection-end-column="6" />
           <folding>
             <element signature="e#124#147#0#PHP" expanded="true" />
-            <element signature="e#3330#3550#0#PHP" expanded="false" />
+            <element signature="e#3328#3548#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
