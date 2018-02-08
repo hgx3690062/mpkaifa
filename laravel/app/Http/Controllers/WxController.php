@@ -36,6 +36,7 @@ class WxController extends Controller
     }
     public function oauth_callback()
     {
+        return 123;
         $config = [
             'app_id' => 'wx25aa36a54cfd3f2a',
             'secret' => 'ead7750606259b3984876560715172f9',
@@ -78,7 +79,7 @@ class WxController extends Controller
          }
 
 // 已经登录过
-        dd(session('wechat_user'));
+         $user = $_SESSION['wechat_user'];
 
 
 
