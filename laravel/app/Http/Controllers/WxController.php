@@ -55,7 +55,7 @@ class WxController extends Controller
 
        session(['wechat_user'=>$user->toArray()]);
 
-        $targetUrl = session()->has('target_url') ? '/' : session('target_url');
+        $targetUrl = session()->has('target_url') ?  session('target_url'):'/' ;
         dd($targetUrl);
 
 //        header('location:'. $targetUrl); // 跳转到 user/profile
