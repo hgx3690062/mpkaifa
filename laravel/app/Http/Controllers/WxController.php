@@ -31,6 +31,7 @@ class WxController extends Controller
     }
      public function index(){
 
+
          $this->app->server->push(function ($message) {
 
              if($message['MsgType'] == 'event'){
@@ -38,16 +39,15 @@ class WxController extends Controller
              }
              if($message['MsgType'] == 'text')
              {
-//                 $items = [
-//                     new NewsItem([
-//                         'title'       => '张誉',
-//                         'description' => '时间如在昨日',
-//                         'url'         => 'www.baidu.com',
-//                         'image'       => 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518594074&di=8b54035ad2274c1f5a84c183dc24b895&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01711b59426ca1a8012193a31e5398.gif',
-//                     ]),
-//                ];
-//                return new News($items);
-                 return $message->user->list();
+                 $items = [
+                     new NewsItem([
+                         'title'       => '张誉',
+                         'description' => '时间如在昨日',
+                         'url'         => 'www.baidu.com',
+                         'image'       => 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518594074&di=8b54035ad2274c1f5a84c183dc24b895&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01711b59426ca1a8012193a31e5398.gif',
+                     ]),
+                ];
+                return new News($items);
 
              }
 
@@ -56,7 +56,14 @@ class WxController extends Controller
          });
          return  $this->app->server->serve();
 
+    }
 
+    //获取token
+    public function token()
+    {
+        $token = file_get_contents('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx25aa36a54cfd3f2a&secret=ead7750606259b3984876560715172f9');
+        $token = json_decode($token,true);
+        return $token['access_token'];
     }
 
 
