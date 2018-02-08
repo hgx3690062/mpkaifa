@@ -64,7 +64,7 @@ class WxController extends Controller
 
         $targetUrl = session()->has('target_url') ?  session('target_url'):'/' ;
         $user = session('wechat_user');
-        return view('text',compact('user'));
+        dd($user);
 //        header('location:'. $targetUrl); // 跳转到 user/profile
     }
 
@@ -76,7 +76,7 @@ class WxController extends Controller
 
          if (!session()->has('wechat_user')) {
 
-             session(['target_url'=>'wx']);
+             session(['target_url'=>'user/profile']);
 
              return $oauth->redirect();
              // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
