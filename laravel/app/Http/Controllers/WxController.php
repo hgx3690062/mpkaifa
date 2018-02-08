@@ -84,7 +84,7 @@ class WxController extends Controller
          }
 
 // 已经登录过
-         $user = $_SESSION['wechat_user'];
+         dd($_SESSION['wechat_user']);
 
 
 
