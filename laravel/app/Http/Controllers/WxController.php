@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 use EasyWeChat\Factory;
 use EasyWeChat\Kernel\Messages\News;
 use EasyWeChat\Kernel\Messages\NewsItem;
+use EasyWeChat\Kernel\Messages\Text;
 
 class WxController extends Controller
 {
@@ -41,15 +42,16 @@ class WxController extends Controller
              }
              if($message['MsgType'] == 'text')
              {
-                 $items = [
-                     new NewsItem([
-                         'title'       => '张誉',
-                         'description' => '时间如在昨日',
-                         'url'         => 'www.baidu.com',
-                         'image'       => 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518594074&di=8b54035ad2274c1f5a84c183dc24b895&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01711b59426ca1a8012193a31e5398.gif',
-                     ]),
-                ];
-                return new News($items);
+//                 $items = [
+//                     new NewsItem([
+//                         'title'       => '张誉',
+//                         'description' => '时间如在昨日',
+//                         'url'         => 'www.baidu.com',
+//                         'image'       => 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518594074&di=8b54035ad2274c1f5a84c183dc24b895&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01711b59426ca1a8012193a31e5398.gif',
+//                     ]),
+//                ];
+//                return new News($items);
+                return  new Text($this->app->user->select('olk48wcsvYThfHhdwOJGJOjlxfLg'));
 
              }
 
