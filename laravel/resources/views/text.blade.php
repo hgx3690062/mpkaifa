@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>{{ $wechat_id }}</h1>
-    <h1>{{ $nick_name }}</h1>
+    <h1>{{ $user->getNickname() }}</h1>
+    <h1>{{ $oauth->getNickname() }}</h1>
 </body>
 </html>s
