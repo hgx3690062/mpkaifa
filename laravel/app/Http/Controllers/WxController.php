@@ -37,6 +37,9 @@ class WxController extends Controller
          $response = $this->app->oauth->scopes(['snsapi_userinfo'])
              ->redirect(url('/text'));
          return $response;
+
+
+         
 //         $this->app->server->push(function ($message) {
 //
 //             if($message['MsgType'] == 'event'){
