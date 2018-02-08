@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>欢迎光临我的小房间</h1>
+    <h1>{{ $res }}</h1>
 </body>
 </html>
