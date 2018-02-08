@@ -71,7 +71,7 @@ class WxController extends Controller
      public function index(){
 
          $oauth = $this->app->oauth;
-
+         dd(session('wechat_user'));
          if (!session()->has('wechat_user')) {
 
              session(['target_url'=>'user/text']);
