@@ -35,35 +35,35 @@ class WxController extends Controller
      public function index(){
 
 
-//         $response = $this->app->oauth->scopes(['snsapi_userinfo'])
-//             ->redirect(url('/text'));
-//         return $response;
+         $response = $this->app->oauth->scopes(['snsapi_userinfo'])
+             ->redirect(url('user/text'));
+         return $response;
 
 
 
-         $this->app->server->push(function ($message) {
-
-             if($message['MsgType'] == 'event'){
-//                 return '欢迎关注 |虫象互娱| 科技公司';
-                 $url = 'http://101.200.58.23/text';
-                 return $this->app->$this->text();
-             }
-             if($message['MsgType'] == 'text')
-             {
-                 $items = [
-                     new NewsItem([
-                         'title'       => '张誉',
-                         'description' => '时间如在昨日',
-                         'url'         => 'www.baidu.com',
-                         'image'       => 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518594074&di=8b54035ad2274c1f5a84c183dc24b895&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01711b59426ca1a8012193a31e5398.gif',
-                     ]),
-                ];
-                return new News($items);
-
-             }
-
-         });
-         return  $this->app->server->serve();
+//         $this->app->server->push(function ($message) {
+//
+//             if($message['MsgType'] == 'event'){
+////                 return '欢迎关注 |虫象互娱| 科技公司';
+//                 $url = 'http://101.200.58.23/text';
+//                 return $this->app->$this->text();
+//             }
+//             if($message['MsgType'] == 'text')
+//             {
+//                 $items = [
+//                     new NewsItem([
+//                         'title'       => '张誉',
+//                         'description' => '时间如在昨日',
+//                         'url'         => 'www.baidu.com',
+//                         'image'       => 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518594074&di=8b54035ad2274c1f5a84c183dc24b895&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01711b59426ca1a8012193a31e5398.gif',
+//                     ]),
+//                ];
+//                return new News($items);
+//
+//             }
+//
+//         });
+//         return  $this->app->server->serve();
 
     }
 
@@ -77,18 +77,17 @@ class WxController extends Controller
 
     public function text()
     {
-        $url = 'woo.login:8888/wx';
-        $code = $_GET['code'];
-       $snsapi_url =  "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx25aa36a54cfd3f2a&redirect_uri='.$url.'&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
-       if(!isset($code))
-       {
-           header("Location:{$snsapi_url}");
-       }
+        $user = $this->app->oauth->user();
+        $wechat_id = $user->getId();
+        $nick_name = $user->getNickname();
+        return view('text',compact('wechat_id','nick_name'));
 
-
-        $urls = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx25aa36a54cfd3f2a&secret=ead7750606259b3984876560715172f9&code='.$code.'&grant_type=authorization_code";
-        return header("Location:{$urls}");
     }
+
+//    public function textpost()
+//    {
+//
+//    }
 
 
 }

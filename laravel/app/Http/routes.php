@@ -17,7 +17,8 @@ Route::get('/', function () {
 
 Route::any('/wx','WxController@index');
 Route::get('/token','WxController@token');
-Route::get('/text','WxController@text');
+Route::get('user/text','WxController@text');
+//Route::post('user/text','IndexController@textpost');
 //Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 //    Route::get('/wx', function () {
 //        $user = session('wechat.oauth_user'); // 拿到授权用户资料

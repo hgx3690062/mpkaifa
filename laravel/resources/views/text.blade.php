@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>{{ $user_asd }}</h1>
+    <h1>{{ $wechat_id }}</h1>
+    <h1>{{ $nick_name }}</h1>
 </body>
 </html>s
