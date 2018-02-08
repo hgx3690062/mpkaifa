@@ -78,12 +78,13 @@ class WxController extends Controller
     public function text()
     {
         $url = 'woo.login:8888/wx';
+        $code = $_GET['code'];
        $snsapi_url =  "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx25aa36a54cfd3f2a&redirect_uri='.$url.'&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
-       if(!isset($_GET['code']))
+       if(!isset($code))
        {
            header("Location:{$snsapi_url}");
        }
-        $code = $_GET['code'];
+
 
         $urls = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx25aa36a54cfd3f2a&secret=ead7750606259b3984876560715172f9&code='.$code.'&grant_type=authorization_code";
         return header("Location:{$urls}");
