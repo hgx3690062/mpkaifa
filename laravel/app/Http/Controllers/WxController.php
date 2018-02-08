@@ -36,7 +36,6 @@ class WxController extends Controller
     }
     public function oauth_callback()
     {
-        dd($_GET['code']);
         //return 123;
         $config = [
             'app_id' => 'wx25aa36a54cfd3f2a',
@@ -67,7 +66,6 @@ class WxController extends Controller
 
      public function index(){
 
-        dd($this->oauth_callback());
          $oauth = $this->app->oauth;
 
 // 未登录
