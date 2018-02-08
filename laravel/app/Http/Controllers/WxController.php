@@ -36,7 +36,6 @@ class WxController extends Controller
     }
     public function oauth_callback()
     {
-        return 123;
         $config = [
             'app_id' => 'wx25aa36a54cfd3f2a',
             'secret' => 'ead7750606259b3984876560715172f9',
