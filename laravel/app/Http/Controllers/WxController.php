@@ -75,7 +75,7 @@ class WxController extends Controller
 
          if (!session()->has('wechat_user')) {
 
-             session(['target_url'=>'user/profile']);
+             session(['target_url'=>'user/text']);
 
              return $oauth->redirect();
              // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
@@ -84,7 +84,6 @@ class WxController extends Controller
 
 // 已经登录过
          $user = session('wechat_user');
-         dd($oauth);
 
 
 
@@ -129,10 +128,8 @@ class WxController extends Controller
 
     public function text()
     {
-        $user = $this->app->oauth->user();
-        $wechat_id = $user->getId();
-        $nick_name = $user->getNickname();
-        return view('text',compact('wechat_id','nick_name'));
+        $user = session('wechat_user');
+        return view('text',compact('user'));
 
     }
 
