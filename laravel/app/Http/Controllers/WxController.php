@@ -36,7 +36,6 @@ class WxController extends Controller
     }
     public function oauth_callback()
     {
-        //return 123;
         $config = [
             'app_id' => 'wx25aa36a54cfd3f2a',
             'secret' => 'ead7750606259b3984876560715172f9',
@@ -67,13 +66,13 @@ class WxController extends Controller
      public function index(){
 
          $oauth = $this->app->oauth;
-
+//        dd($oauth);
 // 未登录
          if (!session()->has('wechat_user')) {
 
              session(['target_url'=>'user/profile']);
 
-             return $oauth->redirect($this->oauth_callback());
+             return $oauth->redirect();
              // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
              // $oauth->redirect()->send();
          }
