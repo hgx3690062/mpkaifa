@@ -27,11 +27,14 @@ class WxController extends Controller
                 'level' => 'debug',
                 'file' => storage_path('logs/wechat.log'),
             ],
+            'oauth' => [
+                'scopes'   => ['snsapi_userinfo'],
+                'callback' => '/oauth_callback',
+            ],
 
         ];
 
         $this->app = Factory::officialAccount($config);
-
 
     }
     public function oauth_callback()
@@ -44,6 +47,10 @@ class WxController extends Controller
             'log' => [
                 'level' => 'debug',
                 'file' => storage_path('logs/wechat.log'),
+            ],
+            'oauth' => [
+                'scopes'   => ['snsapi_userinfo'],
+                'callback' => '/oauth_callback',
             ],
 
         ];
@@ -66,8 +73,7 @@ class WxController extends Controller
      public function index(){
 
          $oauth = $this->app->oauth;
-        dd($oauth);
-// 未登录
+
          if (!session()->has('wechat_user')) {
 
              session(['target_url'=>'user/profile']);
