@@ -9,6 +9,5 @@
 </head>
 <body>
     <h1>{{ $user->getNickname() }}</h1>
-    <h1>{{ $oauth->getNickname() }}</h1>
 </body>
 </html>s
