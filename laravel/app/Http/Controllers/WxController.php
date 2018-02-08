@@ -67,7 +67,7 @@ class WxController extends Controller
 
      public function index(){
 
-        dd($this->oauth_callbac());
+        dd($this->oauth_callback());
          $oauth = $this->app->oauth;
 
 // 未登录

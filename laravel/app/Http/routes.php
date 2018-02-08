@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::any('/wx','WxController@index');
-Route::any('/oauth_callback','WxController@oauth_callback');
+Route::any('oauth_callback','WxController@oauth_callback');
 Route::get('/token','WxController@token');
 Route::get('user/text','WxController@text');
 
