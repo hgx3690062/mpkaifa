@@ -11,6 +11,7 @@ use EasyWeChat\Factory;
 use EasyWeChat\Kernel\Messages\News;
 use EasyWeChat\Kernel\Messages\NewsItem;
 use EasyWeChat\Kernel\Messages\Text;
+use Illuminate\Support\Facades\Session;
 
 class WxController extends Controller
 {
@@ -31,13 +32,55 @@ class WxController extends Controller
 
         $this->app = Factory::officialAccount($config);
 
+
     }
+    public function oauth_callback()
+    {
+        $config = [
+            'app_id' => 'wx25aa36a54cfd3f2a',
+            'secret' => 'ead7750606259b3984876560715172f9',
+            'token'  => 'zhangyuqwe',
+            'response_type' => 'array',
+            'log' => [
+                'level' => 'debug',
+                'file' => storage_path('logs/wechat.log'),
+            ],
+
+        ];
+        $app = Factory::officialAccount($config);
+        $oauth = $app->oauth;
+
+     // 获取 OAuth 授权结果用户信息
+        $user = $oauth->user();
+
+       session(['wechat_user'=>$user->toArray()]);
+
+        $targetUrl = session()->has('target_url') ? '/' : session('target_url');
+        dd($targetUrl);
+
+//        header('location:'. $targetUrl); // 跳转到 user/profile
+    }
+
+
+
      public function index(){
 
+         $oauth = $this->app->oauth;
 
-         $response = $this->app->oauth->scopes(['snsapi_userinfo'])
-             ->redirect(url('user/text'));
-         return $response;
+// 未登录
+         if (!session()->has('wechat_user')) {
+
+             session(['target_url'=>'user/profile']);
+
+             return $oauth->redirect();
+             // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
+             // $oauth->redirect()->send();
+         }
+
+// 已经登录过
+        dd(session('wechat_user'));
+
+
 
 
 
@@ -84,10 +127,6 @@ class WxController extends Controller
 
     }
 
-//    public function textpost()
-//    {
-//
-//    }
 
 
 }

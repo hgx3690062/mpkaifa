@@ -16,8 +16,10 @@ Route::get('/', function () {
 });
 
 Route::any('/wx','WxController@index');
+Route::any('/oauth_callback','WxController@oauth_callback');
 Route::get('/token','WxController@token');
 Route::get('user/text','WxController@text');
+
 //Route::post('user/text','IndexController@textpost');
 //Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
 //    Route::get('/wx', function () {

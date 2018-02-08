@@ -11,24 +11,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="19" column="36" lean-forward="false" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+            <state relative-caret-position="120">
+              <caret line="17" column="15" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WxController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WxController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WxController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="581">
-              <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+            <state relative-caret-position="601">
+              <caret line="80" column="7" lean-forward="false" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
               <folding>
                 <element signature="e#124#147#0#PHP" expanded="true" />
+                <element signature="e#3006#3296#0#PHP" expanded="false" />
+                <element signature="e#3302#3522#0#PHP" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wechat.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/wechat.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="597">
+              <caret line="78" column="48" lean-forward="false" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -70,9 +82,10 @@
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/resources/views/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/index.html" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/WxController.php" />
         <option value="$PROJECT_DIR$/resources/views/text.blade.php" />
+        <option value="$PROJECT_DIR$/config/wechat.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/WxController.php" />
       </list>
     </option>
   </component>
@@ -123,13 +136,7 @@
             <path>
               <item name="laravel" type="b2602c69:ProjectViewProjectNode" />
               <item name="laravel" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="laravel" type="b2602c69:ProjectViewProjectNode" />
-              <item name="laravel" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="laravel" type="b2602c69:ProjectViewProjectNode" />
@@ -178,12 +185,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1517884099353</updated>
-      <workItem from="1517884102899" duration="49053000" />
+      <workItem from="1517884102899" duration="50824000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49053000" />
+    <option name="totallyTimeSpent" value="50824000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -217,7 +224,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -350,14 +357,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/wechat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-383">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -406,6 +405,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/wechat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="78" column="48" lean-forward="false" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/text.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -414,21 +421,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WxController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="19" column="36" lean-forward="false" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-          <folding />
+        <state relative-caret-position="601">
+          <caret line="80" column="7" lean-forward="false" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+          <folding>
+            <element signature="e#124#147#0#PHP" expanded="true" />
+            <element signature="e#3006#3296#0#PHP" expanded="false" />
+            <element signature="e#3302#3522#0#PHP" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WxController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-          <folding>
-            <element signature="e#124#147#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="17" column="15" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
