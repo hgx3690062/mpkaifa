@@ -46,7 +46,7 @@ class WxController extends Controller
              if($message['MsgType'] == 'event'){
 //                 return '欢迎关注 |虫象互娱| 科技公司';
                  $url = 'http://101.200.58.23/text';
-                 return $this->app->$this->text($url);
+                 return $this->app->$this->text();
              }
              if($message['MsgType'] == 'text')
              {
@@ -75,8 +75,9 @@ class WxController extends Controller
         return $token['access_token'];
     }
 
-    public function text($url)
+    public function text()
     {
+        $url = 'woo.login:8888/text';
        $snsapi_url =  "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx25aa36a54cfd3f2a&redirect_uri='.$url.'&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
        if(!isset($_GET['code']))
        {
