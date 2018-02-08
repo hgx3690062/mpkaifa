@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>{{ $res }}</h1>
+    <h1>{{ $user_asd }}</h1>
 </body>
-</html>
+</html>s

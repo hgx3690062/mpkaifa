@@ -39,7 +39,7 @@ class WxController extends Controller
          return $response;
 
 
-         
+
 //         $this->app->server->push(function ($message) {
 //
 //             if($message['MsgType'] == 'event'){
@@ -75,18 +75,9 @@ class WxController extends Controller
     //自定义菜单
     public function text()
     {
-        $appid = "wx25aa36a54cfd3f2a";
-        $secret = "ead7750606259b3984876560715172f9";
-        $code = 'code';
-        $url = 'http://woo.login:8888/wx';
-        $get_token_url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$appid.'&redirect_uri='.$url.'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
-        $ch = curl_init();
-        curl_setopt($ch,CURLOPT_URL,$get_token_url);
-        curl_setopt($ch,CURLOPT_HEADER,0);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1 );
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
-        $res = curl_exec($ch);
-        return view('text',compact('res'));
+        $user = $this->app->oauth->user();
+        $user_asd = $user->getNickname();
+        return view('text',compact('user_asd'));
     }
 
 
