@@ -8,6 +8,8 @@
 
 namespace App\Http\Controllers;
 use EasyWeChat\Factory;
+use EasyWeChat\Kernel\Messages\News;
+use EasyWeChat\Kernel\Messages\NewsItem;
 
 class WxController extends Controller
 {
@@ -50,8 +52,6 @@ class WxController extends Controller
                 return new News($items);
 
              }
-
-
 
          });
          return  $this->app->server->serve();
