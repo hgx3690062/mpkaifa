@@ -64,8 +64,7 @@ class WxController extends Controller
 
         $targetUrl = session()->has('target_url') ?  session('target_url'):'/' ;
         $user = session('wechat_user');
-        dd($user);
-//        header('location:'. $targetUrl); // 跳转到 user/profile
+        header('location:'. $targetUrl); // 跳转到 user/profile
     }
 
 
@@ -85,6 +84,7 @@ class WxController extends Controller
 
 // 已经登录过
          $user = session('wechat_user');
+         dd($oauth);
 
 
 
