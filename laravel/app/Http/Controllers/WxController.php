@@ -63,7 +63,6 @@ class WxController extends Controller
        session(['wechat_user'=>$user->toArray()]);
 
         $targetUrl = session()->has('target_url') ?  session('target_url'):'/' ;
-        dd($targetUrl);
         header('location:'. $targetUrl); // 跳转到 user/profile
     }
 
@@ -81,7 +80,6 @@ class WxController extends Controller
              // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
              // $oauth->redirect()->send();
          }
-         dd(1);
 
 // 已经登录过
          $user = session('wechat_user');
@@ -130,6 +128,7 @@ class WxController extends Controller
 
     public function text()
     {
+        dd(213);
         $user = session('wechat_user');
         return view('text',compact('user'));
 
