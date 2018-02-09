@@ -30,10 +30,7 @@ class WxController extends Controller
                 'level' => 'debug',
                 'file' => storage_path('logs/wechat.log'),
             ],
-            'oauth' => [
-                'scopes'   => ['snsapi_userinfo'],
-                'callback' => '/oauth_callback',
-            ],
+            
 
         ];
 
