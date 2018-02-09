@@ -130,7 +130,6 @@ class WxController extends Controller
     public function text()
     {
         $user = session('wechat_user');
-        dd($user);
         return view('text',compact('user'));
 
     }
