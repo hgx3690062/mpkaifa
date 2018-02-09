@@ -8,6 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>{{ $user['nickname'] }}</h1>
+    <h1>昵称： {{ $user['nickname'] }}</h1>
+    头像：<img src="{{ $user['avatar'] }}" alt="">
+<h1>OpenId:{{ $user['original']['openid'] }}</h1>
+<h1>性别:{{ $user['original']['sex'] }}</h1>
+<h1>地区:{{ $user['original']['country'] }}</h1>
 </body>
 </html>
