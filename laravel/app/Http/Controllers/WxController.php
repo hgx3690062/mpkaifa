@@ -12,6 +12,7 @@ use EasyWeChat\Kernel\Messages\News;
 use EasyWeChat\Kernel\Messages\NewsItem;
 use EasyWeChat\Kernel\Messages\Text;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Session;
 
 class WxController extends Controller
@@ -59,11 +60,11 @@ class WxController extends Controller
     }
 
      public function index(Request $request){
-         if(!$request->has('code') || session()->has('code')){
+         if(!$request->has('code') || Cache::get($request->get('code'))){
              return redirect('/');
          }
          $code = $request->get('code');
-         session(['code'=>$code]);
+         Cache::put($code,1,60*24);
 
          if (!session()->has('wechat_user')) {
              $oauth = $this->app->oauth;
@@ -74,19 +75,6 @@ class WxController extends Controller
           // 已经登录过
          $user = session('wechat_user');
          return view('text',compact('user'));
-
-    }
-
-    public function noLogin(){
-        $oauth = $this->app->oauth;
-        if (!session()->has('wechat_user')) {
-            session(['target_url'=>'user/text']);
-            return $oauth->redirect();
-            // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
-            // $oauth->redirect()->send();
-        }else{
-            return redirect('wx');
-        }
 
     }
 
