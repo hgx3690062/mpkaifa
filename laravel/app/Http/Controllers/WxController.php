@@ -14,6 +14,7 @@ use EasyWeChat\Kernel\Messages\Text;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class WxController extends Controller
 {
@@ -56,14 +57,16 @@ class WxController extends Controller
     public function auth_wechat(){
         $response = $this->app->oauth->scopes(['snsapi_userinfo'])
             ->redirect(url('wx'));
-        dd($response);
         return $response;
     }
 
      public function index(Request $request){
+         Storage::log('request'.json_encode($request->all()));
+         Storage::log('cache'.Cache::get($request->get('code')));
          if(!$request->has('code') || Cache::get($request->get('code'))){
              return redirect('/');
          }
+         Storage::log('code'.$request->get('code'));
          $code = $request->get('code');
          Cache::put($code,1,60*24);
 
