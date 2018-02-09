@@ -30,7 +30,7 @@ class WxController extends Controller
                 'level' => 'debug',
                 'file' => storage_path('logs/wechat.log'),
             ],
-            
+
 
         ];
 
@@ -39,29 +39,33 @@ class WxController extends Controller
     }
     public function oauth_callback()
     {
-        $oauth =  $this->app->oauth;
+//        $oauth =  $this->app->oauth;
+//
+//     // 获取 OAuth 授权结果用户信息
+//        $user = $oauth->user();
+//
+//       session(['wechat_user'=>$user->toArray()]);
+//
+//        $targetUrl = session()->has('target_url') ?  session('target_url'):'/' ;
+////        header('location:'. $targetUrl); // 跳转到 user/profile
+//        return redirect(url($targetUrl));
 
-     // 获取 OAuth 授权结果用户信息
-        $user = $oauth->user();
-
-       session(['wechat_user'=>$user->toArray()]);
-
-        $targetUrl = session()->has('target_url') ?  session('target_url'):'/' ;
-//        header('location:'. $targetUrl); // 跳转到 user/profile
-        return redirect(url($targetUrl));
-    }
-
-    public function auth_wechat(){
         $response = $this->app->oauth->scopes(['snsapi_userinfo'])
             ->redirect(url('wx'));
         return $response;
     }
 
+//    public function auth_wechat(){
+//        $response = $this->app->oauth->scopes(['snsapi_userinfo'])
+//            ->redirect(url('wx'));
+//        return $response;
+//    }
+
      public function index(Request $request){
          Log::info('request'.json_encode($request->all()));
          Log::info('cache'.Cache::get($request->get('code')));
          if(!$request->has('code') || Cache::get($request->get('code'))){
-             return redirect('/');
+             return redirect('oauth_callback');
          }
          Log::info('code'.$request->get('code'));
          $code = $request->get('code');
