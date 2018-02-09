@@ -11,9 +11,6 @@ use EasyWeChat\Factory;
 use EasyWeChat\Kernel\Messages\News;
 use EasyWeChat\Kernel\Messages\NewsItem;
 use EasyWeChat\Kernel\Messages\Text;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 
 class WxController extends Controller
@@ -30,7 +27,10 @@ class WxController extends Controller
                 'level' => 'debug',
                 'file' => storage_path('logs/wechat.log'),
             ],
-
+            'oauth' => [
+                'scopes'   => ['snsapi_userinfo'],
+                'callback' => '/oauth_callback',
+            ],
 
         ];
 
@@ -39,43 +39,44 @@ class WxController extends Controller
     }
     public function oauth_callback()
     {
-//        $oauth =  $this->app->oauth;
-//
-//     // 获取 OAuth 授权结果用户信息
-//        $user = $oauth->user();
-//
-//       session(['wechat_user'=>$user->toArray()]);
-//
-//        $targetUrl = session()->has('target_url') ?  session('target_url'):'/' ;
-////        header('location:'. $targetUrl); // 跳转到 user/profile
-//        return redirect(url($targetUrl));
+        $oauth =  $this->app->oauth;
 
-        $response = $this->app->oauth->scopes(['snsapi_userinfo'])
-            ->redirect(url('index'));
-        return $response;
+     // 获取 OAuth 授权结果用户信息
+        $user = $oauth->user();
+
+       session(['wechat_user'=>$user->toArray()]);
+
+        $targetUrl = session()->has('target_url') ?  session('target_url'):'/' ;
+//        header('location:'. $targetUrl); // 跳转到 user/profile
+        return redirect(url($targetUrl));
     }
 
-//    public function auth_wechat(){
-//        $response = $this->app->oauth->scopes(['snsapi_userinfo'])
-//            ->redirect(url('wx'));
-//        return $response;
-//    }
-
-     public function index(Request $request){
-         Log::info('request'.json_encode($request->all()));
-         Log::info('code'.$request->has('code'));
-         Log::info('cache'.Cache::get($request->get('code')));
-         if(!$request->has('code') || Cache::get($request->get('code'))){
-             return redirect('oauth_callback');
+     public function index(){
+         if(!$this->request->has('code') || Cache::get($this->request->get('code'))){
+             return redirect('/');
          }
-         Log::info('code'.$request->get('code'));
-         $code = $request->get('code');
-         Cache::put($code,1,60*24);
-
-         // 已经登录过
+         if (!session()->has('wechat_user')) {
+             $oauth = $this->app->oauth;
+             $response = $oauth->scopes(['snsapi_userinfo'])
+                 ->redirect(url('wx'));
+             return $response;
+         }
+          // 已经登录过
          $user = session('wechat_user');
          return view('text',compact('user'));
 
+    }
+
+    public function noLogin(){
+        $oauth = $this->app->oauth;
+        if (!session()->has('wechat_user')) {
+            session(['target_url'=>'user/text']);
+            return $oauth->redirect();
+            // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
+            // $oauth->redirect()->send();
+        }else{
+            return redirect('wx');
+        }
 
     }
 
