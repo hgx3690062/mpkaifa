@@ -66,15 +66,10 @@ class WxController extends Controller
          $code = $request->get('code');
          Cache::put($code,1,60*24);
 
-         if (!session()->has('wechat_user')) {
-             $oauth = $this->app->oauth;
-             $response = $oauth->scopes(['snsapi_userinfo'])
-                 ->redirect(url('wx'));
-             return $response;
-         }
-          // 已经登录过
+         // 已经登录过
          $user = session('wechat_user');
          return view('text',compact('user'));
+
 
     }
 
