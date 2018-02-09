@@ -15,11 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::any('/wx','WxController@oauth_callback');
-Route::any('/index','WxController@index');
+Route::any('/wx','WxController@index');
 Route::any('oauth_callback','WxController@oauth_callback');
 Route::get('/token','WxController@token');
 Route::get('user/text','WxController@text');
+Route::get('user/login','WxController@noLogin');
 
 //Route::post('user/text','IndexController@textpost');
 //Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
