@@ -51,10 +51,24 @@ class WxController extends Controller
         return redirect(url($targetUrl));
     }
 
+    public function auth_wechat(){
+        $response = $this->app->oauth->scopes(['snsapi_userinfo'])
+            ->redirect(url('wx'));
+        return $response;
+    }
+
      public function index(){
+         if(!$this->request->has('code') || session()->has('code')){
+             return redirect('/');
+         }
+         $code = $this->request->get('code');
+         session(['code'=>$code]);
 
          if (!session()->has('wechat_user')) {
-             return redirect('user/login');
+             $oauth = $this->app->oauth;
+             $response = $oauth->scopes(['snsapi_userinfo'])
+                 ->redirect(url('wx'));
+             return $response;
          }
           // 已经登录过
          $user = session('wechat_user');
