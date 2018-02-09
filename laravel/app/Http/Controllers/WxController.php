@@ -7,11 +7,11 @@
  */
 
 namespace App\Http\Controllers;
-use App\Http\Requests\Request;
 use EasyWeChat\Factory;
 use EasyWeChat\Kernel\Messages\News;
 use EasyWeChat\Kernel\Messages\NewsItem;
 use EasyWeChat\Kernel\Messages\Text;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class WxController extends Controller
