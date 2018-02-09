@@ -65,7 +65,8 @@ class WxController extends Controller
 
           // 已经登录过
          $user = session('wechat_user');
-         return view('text',compact('user'));
+         dd($user);
+//         return view('text',compact('user'));
 
     }
     public function text()
