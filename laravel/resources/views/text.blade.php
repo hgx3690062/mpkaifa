@@ -10,4 +10,4 @@
 <body>
     <h1>{{ $user['nickname'] }}</h1>
 </body>
-</html>s
+</html>

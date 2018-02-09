@@ -27,10 +27,10 @@ class WxController extends Controller
                 'level' => 'debug',
                 'file' => storage_path('logs/wechat.log'),
             ],
-            'oauth' => [
-                'scopes'   => ['snsapi_userinfo'],
-                'callback' => '/oauth_callback',
-            ],
+//            'oauth' => [
+//                'scopes'   => ['snsapi_userinfo'],
+//                'callback' => '/oauth_callback',
+//            ],
 
         ];
 
@@ -39,23 +39,7 @@ class WxController extends Controller
     }
     public function oauth_callback()
     {
-        $config = [
-            'app_id' => 'wx25aa36a54cfd3f2a',
-            'secret' => 'ead7750606259b3984876560715172f9',
-            'token'  => 'zhangyuqwe',
-            'response_type' => 'array',
-            'log' => [
-                'level' => 'debug',
-                'file' => storage_path('logs/wechat.log'),
-            ],
-            'oauth' => [
-                'scopes'   => ['snsapi_userinfo'],
-                'callback' => '/oauth_callback',
-            ],
-
-        ];
-        $app = Factory::officialAccount($config);
-        $oauth = $app->oauth;
+        $oauth =  $this->app->oauth;
 
      // 获取 OAuth 授权结果用户信息
         $user = $oauth->user();
@@ -67,57 +51,33 @@ class WxController extends Controller
         return redirect(url($targetUrl));
     }
 
-
-
      public function index(){
 
-         $oauth = $this->app->oauth;
-         if (!session()->has('wechat_user')) {
-
-
-             session(['target_url'=>'user/text']);
-
-             return $oauth->redirect();
-             // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
-             // $oauth->redirect()->send();
-         }
-
-// 已经登录过
-         $user = session('wechat_user');
-//         return view('text',compact('user'));
-
-
-
-
-
-
-
-
-//         $this->app->server->push(function ($message) {
+         $response = $this->app->oauth->scopes(['snsapi_userinfo'])
+             ->redirect(url('user/text'));
+         return $response;
+//         $oauth = $this->app->oauth;
+//         if (!session()->has('wechat_user')) {
 //
-//             if($message['MsgType'] == 'event'){
-////                 return '欢迎关注 |虫象互娱| 科技公司';
-//                 $url = 'http://101.200.58.23/text';
-//                 return $this->app->$this->text();
-//             }
-//             if($message['MsgType'] == 'text')
-//             {
-//                 $items = [
-//                     new NewsItem([
-//                         'title'       => '张誉',
-//                         'description' => '时间如在昨日',
-//                         'url'         => 'www.baidu.com',
-//                         'image'       => 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518594074&di=8b54035ad2274c1f5a84c183dc24b895&imgtype=jpg&er=1&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01711b59426ca1a8012193a31e5398.gif',
-//                     ]),
-//                ];
-//                return new News($items);
 //
-//             }
+//             session(['target_url'=>'user/text']);
 //
-//         });
-//         return  $this->app->server->serve();
+//             return $oauth->redirect();
+//             // 这里不一定是return，如果你的框架action不是返回内容的话你就得使用
+//             // $oauth->redirect()->send();
+//         }
+//
+//          // 已经登录过
+//         $user = session('wechat_user');
 
     }
+    public function text()
+    {
+        $user = session('wechat_user');
+        return view('text',compact('user'));
+
+    }
+
 
     //获取token
     public function token()
@@ -127,12 +87,6 @@ class WxController extends Controller
         return $token['access_token'];
     }
 
-    public function text()
-    {
-        $user = session('wechat_user');
-        return view('text',compact('user'));
-
-    }
 
 
 
