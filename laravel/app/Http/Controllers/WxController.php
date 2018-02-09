@@ -51,7 +51,7 @@ class WxController extends Controller
 //        return redirect(url($targetUrl));
 
         $response = $this->app->oauth->scopes(['snsapi_userinfo'])
-            ->redirect(url('wx'));
+            ->redirect(url('index'));
         return $response;
     }
 
@@ -63,6 +63,7 @@ class WxController extends Controller
 
      public function index(Request $request){
          Log::info('request'.json_encode($request->all()));
+         Log::info('code'.$request->has('code'));
          Log::info('cache'.Cache::get($request->get('code')));
          if(!$request->has('code') || Cache::get($request->get('code'))){
              return redirect('oauth_callback');

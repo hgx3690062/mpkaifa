@@ -16,7 +16,8 @@ Route::get('/', function () {
 });
 
 Route::any('/','WxController@auth_wechat');
-Route::any('/wx','WxController@index');
+Route::any('/wx','WxController@auth_wechat');
+Route::any('/index','WxController@index');
 Route::any('oauth_callback','WxController@oauth_callback');
 Route::get('/token','WxController@token');
 Route::get('user/text','WxController@text');
