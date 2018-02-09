@@ -56,11 +56,11 @@ class WxController extends Controller
     public function auth_wechat(){
         $response = $this->app->oauth->scopes(['snsapi_userinfo'])
             ->redirect(url('wx'));
+        dd($response);
         return $response;
     }
 
      public function index(Request $request){
-        dd(Cache::get($request->get('code')));
          if(!$request->has('code') || Cache::get($request->get('code'))){
              return redirect('/');
          }
