@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-  <h2>测试</h2>
+  <h2>首页</h2>
 </body>
 </html>
