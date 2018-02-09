@@ -7,6 +7,7 @@
  */
 
 namespace App\Http\Controllers;
+use App\Http\Requests\Request;
 use EasyWeChat\Factory;
 use EasyWeChat\Kernel\Messages\News;
 use EasyWeChat\Kernel\Messages\NewsItem;
@@ -57,11 +58,11 @@ class WxController extends Controller
         return $response;
     }
 
-     public function index(){
-         if(!$this->request->has('code') || session()->has('code')){
+     public function index(Request $request){
+         if(!$request->has('code') || session()->has('code')){
              return redirect('/');
          }
-         $code = $this->request->get('code');
+         $code = $request->get('code');
          session(['code'=>$code]);
 
          if (!session()->has('wechat_user')) {
