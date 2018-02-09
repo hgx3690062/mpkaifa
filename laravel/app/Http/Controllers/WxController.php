@@ -53,9 +53,9 @@ class WxController extends Controller
 
      public function index(){
 
+         $targetUrl = 'user/text';
          $response = $this->app->oauth->scopes(['snsapi_userinfo'])
-             ->redirect(url('user/text'));
-         dd($response);
+             ->redirect(url($targetUrl));
          return $response;
 //         $oauth = $this->app->oauth;
 //         if (!session()->has('wechat_user')) {
