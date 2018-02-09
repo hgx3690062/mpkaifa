@@ -60,6 +60,7 @@ class WxController extends Controller
     }
 
      public function index(Request $request){
+        dd(Cache::get($request->get('code')));
          if(!$request->has('code') || Cache::get($request->get('code'))){
              return redirect('/');
          }
